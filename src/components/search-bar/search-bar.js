@@ -57,7 +57,7 @@ function SearchBar(props) {
 
   const getStockOverview = (stock) => {
     setShowSearchResult(false);
-    console.log(stock)
+
     if (isEmpty(stock)) {
       return;
     }
@@ -66,6 +66,9 @@ function SearchBar(props) {
       .then(res => res.json())
       .then(data => {
         if (isEmpty(data.Note)) {
+          if (isEmpty(data.Name)) {
+            handleError('No data for this stock')
+          }
           dispatch(handleStockOverview(data));
         } else {
          handleWarn(data.Note);
@@ -136,10 +139,11 @@ function SearchBar(props) {
     <>
       <input
         className="search-input"
+        data-id='search-input'
         onBlur={closeSearchResult}
         onChange={event => handleOnChange(event)}
       ></input>
-      <label className="search-icon" onClick={() => getStockOverview(searchValue)}>
+      <label className="search-icon" data-id='search-icon' onClick={() => getStockOverview(searchValue)}>
         <i className="fas fa-search"></i>
       </label>
       {getResult()}

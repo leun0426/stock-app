@@ -10,10 +10,8 @@ function StockDetails(props) {
   //   ...resourceStockDetails
   // })
 
-  const stockDetails = useSelector(state => {
-    console.log(state);
-    return state.stockOverview
-  });
+  const stockDetails = useSelector(state => state.stockOverview);
+
   const getStockDetails = () => {
     const elements = [];
     elements.push(getTitle());
@@ -50,7 +48,7 @@ function StockDetails(props) {
     }
     return (
       <div key="stock-title">
-        <h4>
+        <h4 data-id='stock-title'>
           {title}
         </h4>
       </div>
