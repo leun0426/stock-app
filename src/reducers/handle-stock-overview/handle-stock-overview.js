@@ -1,4 +1,6 @@
-const handleStockOverview = (state = {}, action) => {
+export const initialState = {}
+
+const handleStockOverview = (state = initialState, action) => {
   switch(action.type) {
     case 'stockoverview':
       return action.payload;

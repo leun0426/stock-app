@@ -3,12 +3,8 @@ import React from 'react';
 
 import {useSelector} from 'react-redux';
 
-// import resourceStockDetails from 'resources/stock-details'
-
 function StockDetails(props) {
-  // const [stockDetails, setStockDetails] = useState({
-  //   ...resourceStockDetails
-  // })
+
 
   const stockDetails = useSelector(state => state.stockOverview);
 
