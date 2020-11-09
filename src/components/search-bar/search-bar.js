@@ -9,6 +9,10 @@ import { toast } from 'react-toastify';
 
 import './search-bar.scss';
 
+/**
+ * Search Bar used only to search for stocks. Upon error it triggers a toaster message
+ * @param {*} props 
+ */
 function SearchBar(props) {
   
   const [onSearchResult, setOnSearchResult] = useState(false)
@@ -90,8 +94,14 @@ function SearchBar(props) {
       draggable: false,
       progress: undefined,
     });
-  }
-  ;
+  };
+
+  const handleKeyUp = (event) => {
+    if (event.key === 'Enter') {
+      getStockOverview(searchValue);
+    }
+  };
+
   const handleOnChange = (event) => {
     setSearchValue(event.target.value);
 
@@ -119,7 +129,7 @@ function SearchBar(props) {
       .catch(error => {
         handleError(error);
       })
-  }
+  };
 
   const handleOnSearchResult = onSearchResult => setOnSearchResult(onSearchResult);
   
@@ -134,13 +144,15 @@ function SearchBar(props) {
       draggable: false,
       progress: undefined,
     });
-  }
+  };
+
   return (
     <>
       <input
         className="search-input"
         data-id='search-input'
         onBlur={closeSearchResult}
+        onKeyUp={event => handleKeyUp(event)}
         onChange={event => handleOnChange(event)}
       ></input>
       <label className="search-icon" data-id='search-icon' onClick={() => getStockOverview(searchValue)}>

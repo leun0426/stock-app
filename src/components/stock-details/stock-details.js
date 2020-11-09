@@ -3,8 +3,11 @@ import React from 'react';
 
 import {useSelector} from 'react-redux';
 
+/**
+ * Stock details - shows the stock name, symbol, and description through redux state.stockOverview
+ * @param {object} props - 
+ */
 function StockDetails(props) {
-
 
   const stockDetails = useSelector(state => state.stockOverview);
 
