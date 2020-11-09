@@ -1,0 +1,8 @@
+{
+  "uri": "https://www.alphavantage.co/query?function=",
+  "param": {
+    "symbolSearch": "SYMBOL_SEARCH&keywords=",
+    "overview": "OVERVIEW&symbol="
+  },
+  "apiKey": "&apikey=A4UFNG7JDN3GJ0AB"
+}
